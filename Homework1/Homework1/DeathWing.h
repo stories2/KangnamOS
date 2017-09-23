@@ -27,6 +27,7 @@ void SpawnYsera(int, int);
 int RecursiveYsera(int, int, int);
 
 void SpawnNozdormu(int);
+int ReverseNozdormu(int );
 
 void SayMalygos(char *, char *, char *, int );
 
