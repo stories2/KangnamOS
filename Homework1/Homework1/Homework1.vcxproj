@@ -62,6 +62,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Malygos.cpp" />
     <ClCompile Include="Nozdormu.cpp" />
     <ClCompile Include="Ysera.cpp" />
   </ItemGroup>

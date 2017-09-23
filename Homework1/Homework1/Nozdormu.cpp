@@ -1,7 +1,9 @@
 #include "DeathWing.h"
 
 void SpawnNozdormu(int damageScale) {
-	printf("Just in time\n");
+	SayMalygos("Nozdormu", "SpawnNozdormu", "Just in time", LOG_LEVEL_VERBOSE);
 
-	printf("Set damageScale: %d\n", damageScale);
+	char buffer[200];
+	sprintf(buffer, "Set damageScale: %d", damageScale);
+	SayMalygos("Nozdormu", "SpawnNozdormu", buffer, LOG_LEVEL_INFO);
 }

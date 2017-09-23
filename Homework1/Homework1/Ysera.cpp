@@ -1,7 +1,9 @@
 #include "DeathWing.h"
 
 void SpawnYsera(int damageScale, int attackTimes) {
-	printf("If i dream and the world trembles\n");
+	SayMalygos("Ysera", "SpawnYsera", "If i dream and the world trembles", LOG_LEVEL_VERBOSE);
 
-	printf("Set damage Scale: %d attack time: %d\n", damageScale, attackTimes);
+	char buffer[200];
+	sprintf(buffer, "Set damage Scale: %d attack time: %d", damageScale, attackTimes);
+	SayMalygos("Ysera", "SpawnYsera", buffer, LOG_LEVEL_INFO);
 }

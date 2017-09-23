@@ -31,7 +31,7 @@ void AttackEnemy(int damageScale, int attackTimes) {
 		break;
 	case CARD_DEATH_WING:
 		wait(NULL);
-		printf("I am deathwing the destroyer the end of all things\n");
+		SayMalygos("main", "AttackEnemy", "I am deathwing the destroyer the end of all things", LOG_LEVEL_VERBOSE);
 		break;
 	default:
 		break;
