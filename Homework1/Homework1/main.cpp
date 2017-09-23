@@ -3,7 +3,7 @@
 int main()
 {
 	int cardId, cardDrawNum = ZERO, draw;
-    printf("hello from Homework1!\n");
+
 	for (draw = ZERO; draw < MAXIMUM_OF_DECK; draw += 1) {
 		cardDrawNum += 1;
 		cardId = fork();
@@ -12,7 +12,24 @@ int main()
 		}
 	}
 
-	wait(NULL);
-	printf("my pid: %d prog: %d\n", cardId, cardDrawNum);
+	if (cardId > ZERO) {
+		cardDrawNum = CARD_DEATH_WING;
+	}
+
+	switch (cardDrawNum)
+	{
+	case CARD_YSERA:
+		SpawnYsera();
+		break;
+	case CARD_NOZDORMU:
+		SpawnNozdormu();
+		break;
+	case CARD_DEATH_WING:
+		wait(NULL);
+		printf("I am deathwing the destroyer the end of all things\n");
+		break;
+	default:
+		break;
+	}
     return 0;
 }
