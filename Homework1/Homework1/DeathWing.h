@@ -13,7 +13,8 @@
 #include <unistd.h>
 #include <wait.h>
 
-void SpawnYsera();
-void SpawnNozdormu();
+void AttackEnemy(int, int);
+void SpawnYsera(int, int);
+void SpawnNozdormu(int);
 
 #endif // !ONE_DEATH_WING

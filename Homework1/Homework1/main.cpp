@@ -2,6 +2,11 @@
 
 int main()
 {
+	AttackEnemy(1734, 8);
+    return 0;
+}
+
+void AttackEnemy(int damageScale, int attackTimes) {
 	int cardId, cardDrawNum = ZERO, draw;
 
 	for (draw = ZERO; draw < MAXIMUM_OF_DECK; draw += 1) {
@@ -19,10 +24,10 @@ int main()
 	switch (cardDrawNum)
 	{
 	case CARD_YSERA:
-		SpawnYsera();
+		SpawnYsera(damageScale, attackTimes);
 		break;
 	case CARD_NOZDORMU:
-		SpawnNozdormu();
+		SpawnNozdormu(damageScale);
 		break;
 	case CARD_DEATH_WING:
 		wait(NULL);
@@ -31,5 +36,4 @@ int main()
 	default:
 		break;
 	}
-    return 0;
 }
