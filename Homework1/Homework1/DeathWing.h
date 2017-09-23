@@ -11,6 +11,8 @@
 #define DIGIT_TEN 10
 #define MAXIMUM_BUFFER_SCALE 200
 
+#define PROCESS_TYPE_REVERSE "reverse"
+
 #define LOG_LEVEL_VERBOSE 0
 #define LOG_LEVEL_INFO 1
 #define LOG_LEVEL_DEBUG 2
@@ -20,6 +22,8 @@
 #include <cstdio>
 #include <unistd.h>
 #include <wait.h>
+#include <string.h>
+#include <stdlib.h>
 
 void AttackEnemy(int, int);
 

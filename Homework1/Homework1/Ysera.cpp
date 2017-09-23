@@ -14,6 +14,8 @@ void SpawnYsera(int damageScale, int attackTimes) {
 	sprintf(buffer, "Cast damage Scale: %d", castedDamageScale);
 
 	SayMalygos("Ysera", "SpawnYsera", buffer, LOG_LEVEL_INFO);
+
+	exit(0);
 }
 
 int RecursiveYsera(int damageScale, int attackTimes, int depths) {

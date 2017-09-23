@@ -3,7 +3,22 @@
 int main()
 {
 	SayMalygos("main", "main", "I am deathwing the destroyer the end of all things", LOG_LEVEL_VERBOSE);
-	AttackEnemy(1734, 8);
+	
+	while (true) {
+		SayMalygos("main", "main", "Select type of process: ", LOG_LEVEL_INFO);
+		char cardProcessType[MAXIMUM_BUFFER_SCALE];
+		scanf(" %s", cardProcessType);
+
+		if (strcmp(cardProcessType, PROCESS_TYPE_REVERSE) == ZERO) {
+
+			SayMalygos("main", "main", "Type damageScale and attackTimes: ", LOG_LEVEL_INFO);
+
+			int damageScale, attackTimes, cardId;
+			scanf(" %d %d", &damageScale, &attackTimes);
+
+			AttackEnemy(damageScale, attackTimes);
+		}
+	}
     return 0;
 }
 
@@ -17,6 +32,8 @@ void AttackEnemy(int damageScale, int attackTimes) {
 	for (draw = ZERO; draw < MAXIMUM_OF_DECK; draw += 1) {
 		cardDrawNum += 1;
 		cardId = fork();
+		sprintf(buffer, "My cardId: %d", cardId);
+		SayMalygos("main", "AttackEnemy", buffer, LOG_LEVEL_INFO);
 		if (cardId == CARD_PID) {
 			break;
 		}
@@ -35,8 +52,16 @@ void AttackEnemy(int damageScale, int attackTimes) {
 		SpawnNozdormu(damageScale);
 		break;
 	case CARD_DEATH_WING:
-		wait(NULL);
-		SayMalygos("main", "AttackEnemy", "The end of game", LOG_LEVEL_INFO);
+		draw = MAXIMUM_OF_DECK;
+		while (draw > ZERO) {
+			int status;
+			cardId = wait(&status);
+
+			sprintf(buffer, "End of game: %d status: %d", cardId, status);
+			SayMalygos("main", "AttackEnemy", buffer, LOG_LEVEL_INFO);
+
+			draw -= 1;
+		}
 		break;
 	default:
 		break;

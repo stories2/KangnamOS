@@ -12,6 +12,8 @@ void SpawnNozdormu(int damageScale) {
 	reverseDamage = ReverseNozdormu(damageScale);
 	sprintf(buffer, "Reverse damageScale: %d", reverseDamage);
 	SayMalygos("Nozdormu", "SpawnNozdormu", buffer, LOG_LEVEL_INFO);
+
+	exit(0);
 }
 
 int ReverseNozdormu(int damageScale) {
