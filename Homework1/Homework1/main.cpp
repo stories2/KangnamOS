@@ -1,6 +1,4 @@
-#include <cstdio>
-#include <unistd.h>
-#include <wait.h>
+#include "DeathWing.h"
 
 int main()
 {
