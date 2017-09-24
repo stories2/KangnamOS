@@ -8,6 +8,7 @@ void SayMalygos(char *cardName, char *actionName, char *message, int level) {
 	{
 	case LOG_LEVEL_VERBOSE:
 		levelInfo = 'V';
+		return;
 		break;
 	case LOG_LEVEL_INFO:
 		levelInfo = 'I';

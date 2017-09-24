@@ -65,6 +65,7 @@ void AttackEnemy(int damageScale, int attackTimes) {
 
 			draw -= 1;
 		}
+		SayMalygos("main", "AttackEnemy", "All the game is ended", LOG_LEVEL_INFO);
 		break;
 	default:
 		break;
