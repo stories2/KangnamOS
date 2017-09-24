@@ -37,6 +37,9 @@ void AttackEnemy(int damageScale, int attackTimes) {
 		if (cardId == CARD_PID) {
 			break;
 		}
+		else if (cardId == CARD_CRASH) {
+			SayMalygos("main", "AttackEnemy", "The card not available", LOG_LEVEL_ERROR);
+		}
 	}
 
 	if (cardId > ZERO) {
