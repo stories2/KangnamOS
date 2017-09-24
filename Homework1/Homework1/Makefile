@@ -1,14 +1,14 @@
 app.out: main.o Ysera.o Nozdormu.o Malygos.o
-	gcc -o a.out main.o Ysera.o Nozdormu.o Malygos.o
+	gcc -o app.out main.o Ysera.o Nozdormu.o Malygos.o
 
-main.o: DeathWing.h main.cpp
-	gcc -c -o main.o main.cpp
+main.o: main.c
+	gcc -c main.c
 
-Ysera.o: DeathWing.h Ysera.cpp
-	gcc -c -o Ysera.o Ysera.cpp
+Ysera.o: Ysera.c
+	gcc -c Ysera.c
 
-Nozdormu.o: DeathWing.h Nozdormu.cpp
-	gcc -c -o Nozdormu.o Nozdormu.cpp
+Nozdormu.o: Nozdormu.c
+	gcc -c Nozdormu.c
 
-Malygos.o: DeathWing.h Malygos.cpp
-	gcc -c -o Malygos.o Malygos.cpp
+Malygos.o: Malygos.c
+	gcc -c Malygos.c

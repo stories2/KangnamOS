@@ -4,7 +4,7 @@ int main()
 {
 	SayMalygos("main", "main", "I am deathwing the destroyer the end of all things", LOG_LEVEL_VERBOSE);
 	
-	while (true) {
+	while (1) {
 		SayMalygos("main", "main", "Select type of process: ", LOG_LEVEL_INFO);
 		char cardProcessType[MAXIMUM_BUFFER_SCALE];
 		scanf(" %s", cardProcessType);
