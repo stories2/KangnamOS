@@ -22,7 +22,7 @@
 
 #include <cstdio>
 #include <unistd.h>
-#include <wait.h>
+//#include <wait.h>
 #include <string.h>
 #include <stdlib.h>
 
