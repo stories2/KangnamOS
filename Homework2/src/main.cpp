@@ -1,9 +1,11 @@
-#include <iostream>
+#include "main.h"
 
-using namespace std;
-
-int main(int argc, char* argv[]) {
+int main() {
 	cout << "Hello, goorm!" << endl;
+	
+	char *argv[] ={"ls", "-al", NULL};
+	
+	execvp(argv[0], argv);
 	
 	return 0;
 }
