@@ -21,10 +21,12 @@ void ExecuteManager::SetOrder(string orderArray[]) {
 }
 
 void ExecuteManager::Execute() {
+    char **orderArrayChar = ConvertStringArray2CharArray(this->orderArray);
     pid_t pid = fork();
     if(pid == CHILD_PROCESS) {
         cout << "child " << pid << endl;
-//        execvp(orderArray[0], orderArray);
+        cout << "order: " << orderArrayChar[0] << endl;
+        execvp(orderArrayChar[0], orderArrayChar);
     }
     else if(pid > CHILD_PROCESS) {
         cout << "parent " << pid << endl;
@@ -33,6 +35,20 @@ void ExecuteManager::Execute() {
     else {
         cout << "error" << endl;
     }
+}
+
+char** ExecuteManager::ConvertStringArray2CharArray(string *target) {
+    int len = target->length(), i;
+    char **convertArray = NULL;
+    
+    convertArray = new char *[len];
+    for(i = 0; i < len; i ++) {
+        int subStrLen = target[i].length();
+        cout << "#" << i << ": " << target[i] << " len: " << subStrLen << endl;
+        convertArray[i] = new char[subStrLen + 1];
+        strncpy(convertArray[i], target[i].c_str(), sizeof(convertArray[i]));
+    }
+    return convertArray;
 }
 
 ExecuteManager::~ExecuteManager() {

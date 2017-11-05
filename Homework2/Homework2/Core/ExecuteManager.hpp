@@ -18,5 +18,6 @@ public:
     ~ExecuteManager();
     void SetOrder(string orderArray[]);
     void Execute();
+    char** ConvertStringArray2CharArray(string orderArray[]);
 };
 
