@@ -36,6 +36,7 @@ void ExecuteManager::Execute() {
 	}
 	else if(pid > CHILD_PROCESS) {
 		cout << "parent " << pid << endl;
+		wait();
 	}
 	else {
 		cout << "error" << endl;
@@ -43,5 +44,8 @@ void ExecuteManager::Execute() {
 }
 
 ExecuteManager::~ExecuteManager() {
-	delete [] orderArray;
+	int len = sizeof(orderArray) / sizeof(orderArray[0]), i;
+	for(i = 0; i <= len; i ++) {
+		delete [] orderArray[i];
+	}
 }

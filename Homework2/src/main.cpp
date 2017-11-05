@@ -18,8 +18,9 @@ int main() {
 		cout << "error" << endl;
 	}
 	*/
-	ExecuteManager manager;
-	manager.SetOrder(argv);
-	manager.Execute();
+	ExecuteManager *manager = new ExecuteManager();
+	manager->SetOrder(argv);
+	manager->Execute();
+	delete manager;
 	return 0;
 }
