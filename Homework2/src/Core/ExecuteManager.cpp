@@ -8,7 +8,7 @@ ExecuteManager::ExecuteManager(char **orderArray) {
 	int len = sizeof(orderArray) / sizeof(orderArray[0]);
 	int i, indexOfLen;
 	this->orderArray = new char *[len + 1];
-	for(i = 0; i < len; i++) {
+	for(i = 0; i <= len; i++) {
 		indexOfLen = strlen(orderArray[i]);
 		this->orderArray[i] = new char[indexOfLen + 1];
 		strcpy(this->orderArray[i], orderArray[i]);
@@ -16,16 +16,15 @@ ExecuteManager::ExecuteManager(char **orderArray) {
 }
 
 void ExecuteManager::SetOrder(char **orderArray) {
-	if(this->orderArray) {
-		delete [] orderArray;
-	}
 	int len = sizeof(orderArray) / sizeof(orderArray[0]);
 	int i, indexOfLen;
+	cout << "array row len: " << len << endl;
 	this->orderArray = new char *[len + 1];
-	for(i = 0; i < len; i++) {
+	for(i = 0; i <= len; i++) {
 		indexOfLen = strlen(orderArray[i]);
 		this->orderArray[i] = new char[indexOfLen + 1];
 		strcpy(this->orderArray[i], orderArray[i]);
+		cout << "#" << i << ": " << this->orderArray[i] << " added" << endl;
 	}
 }
 
