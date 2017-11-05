@@ -6,10 +6,13 @@
          contextName = "ExecuteManager::SetOrder(char**):ExecuteManager.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "strlen(orderArray[0])">
+               value = "sizeof(orderArray[0])">
             </PersistentString>
             <PersistentString
-               value = "sizeof(*orderArray[0])">
+               value = "sizeof(char)">
+            </PersistentString>
+            <PersistentString
+               value = "*orderArray">
             </PersistentString>
             <PersistentString
                value = "sizeof(orderArray)">

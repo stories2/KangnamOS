@@ -4,27 +4,23 @@ ExecuteManager::ExecuteManager(){
     
 }
 
-ExecuteManager::ExecuteManager(char **orderArray) {
-    int len = sizeof(orderArray) / sizeof(orderArray[0]);
+ExecuteManager::ExecuteManager(string orderArray[]) {
+    int len = orderArray->length();
     int i, indexOfLen;
-    this->orderArray = new char *[len + 1];
+    this->orderArray = new string[len + 1];
     for(i = 0; i <= len; i++) {
-        indexOfLen = strlen(orderArray[i]);
-        this->orderArray[i] = new char[indexOfLen + 1];
-        strcpy(this->orderArray[i], orderArray[i]);
+        indexOfLen = orderArray[i].length();
+        this->orderArray[i] = orderArray[i];
     }
 }
 
-void ExecuteManager::SetOrder(char **orderArray) {
-    int len = sizeof(orderArray) / sizeof(orderArray[0]);
+void ExecuteManager::SetOrder(string orderArray[]) {
+    int len = orderArray->length();
     int i, indexOfLen;
-    cout << "array row len: " << len << endl;
-    this->orderArray = new char *[len + 1];
+    this->orderArray = new string[len + 1];
     for(i = 0; i <= len; i++) {
-        indexOfLen = strlen(orderArray[i]);
-        this->orderArray[i] = new char[indexOfLen + 1];
-        strcpy(this->orderArray[i], orderArray[i]);
-        cout << "#" << i << ": " << this->orderArray[i] << " added" << endl;
+        indexOfLen = orderArray[i].length();
+        this->orderArray[i] = orderArray[i];
     }
 }
 
@@ -32,7 +28,7 @@ void ExecuteManager::Execute() {
     pid_t pid = fork();
     if(pid == CHILD_PROCESS) {
         cout << "child " << pid << endl;
-        execvp(orderArray[0], orderArray);
+//        execvp(orderArray[0], orderArray);
     }
     else if(pid > CHILD_PROCESS) {
         cout << "parent " << pid << endl;
@@ -44,9 +40,6 @@ void ExecuteManager::Execute() {
 }
 
 ExecuteManager::~ExecuteManager() {
-    int len = sizeof(orderArray) / sizeof(orderArray[0]), i;
-    for(i = 0; i <= len; i ++) {
-        delete [] orderArray[i];
-    }
+    delete [] orderArray;
 }
 

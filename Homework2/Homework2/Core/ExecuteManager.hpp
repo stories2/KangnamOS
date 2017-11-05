@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <unistd.h>
 #include <sys/wait.h>
 
@@ -11,12 +11,12 @@ using namespace std;
 #endif
 
 class ExecuteManager {
-    char **orderArray;
+    string *orderArray;
 public:
     ExecuteManager();
-    ExecuteManager(char **orderArray);
+    ExecuteManager(string orderArray[]);
     ~ExecuteManager();
-    void SetOrder(char **orderArray);
+    void SetOrder(string orderArray[]);
     void Execute();
 };
 

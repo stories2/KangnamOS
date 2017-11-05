@@ -3,7 +3,8 @@
 int main() {
     cout << "Hello, goorm!" << endl;
     
-    char *argv[] ={"ls", "-al"};
+//    char *argv[] ={"ls", "-al"};
+    string argv[] = {"ls", "-al"};
     /*
      cout << "make child process" << endl;
      pid_t pid = fork();
