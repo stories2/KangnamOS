@@ -61,9 +61,7 @@
 		2C3E04101FAF66D600BCA6D0 /* Homework2 */ = {
 			isa = PBXGroup;
 			children = (
-				2C3E04191FAF670B00BCA6D0 /* Core */,
-				2C3E04111FAF66D600BCA6D0 /* main.cpp */,
-				2C3E04181FAF66FD00BCA6D0 /* main.h */,
+				2C3E041D1FAF816900BCA6D0 /* src */,
 			);
 			path = Homework2;
 			sourceTree = "<group>";
@@ -75,6 +73,16 @@
 				2C3E041B1FAF672300BCA6D0 /* ExecuteManager.hpp */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		2C3E041D1FAF816900BCA6D0 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2C3E04191FAF670B00BCA6D0 /* Core */,
+				2C3E04111FAF66D600BCA6D0 /* main.cpp */,
+				2C3E04181FAF66FD00BCA6D0 /* main.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
