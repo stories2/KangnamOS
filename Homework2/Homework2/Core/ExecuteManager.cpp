@@ -5,21 +5,17 @@ ExecuteManager::ExecuteManager(){
 }
 
 ExecuteManager::ExecuteManager(string orderArray[]) {
-    int len = orderArray->length();
-    int i, indexOfLen;
+    int len = orderArray->length(), i;
     this->orderArray = new string[len + 1];
     for(i = 0; i <= len; i++) {
-        indexOfLen = orderArray[i].length();
         this->orderArray[i] = orderArray[i];
     }
 }
 
 void ExecuteManager::SetOrder(string orderArray[]) {
-    int len = orderArray->length();
-    int i, indexOfLen;
+    int len = orderArray->length(), i;
     this->orderArray = new string[len + 1];
     for(i = 0; i <= len; i++) {
-        indexOfLen = orderArray[i].length();
         this->orderArray[i] = orderArray[i];
     }
 }
