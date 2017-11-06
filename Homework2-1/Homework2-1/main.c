@@ -3,49 +3,40 @@
 #include <sys/types.h>
 #include <unistd.h>
 #define MAXARG 7
+#define MAXIMUM_BUFFER_SIZE 256
+#define SHELL_TYPE "/bin/sh"
+#define SHELL_OPTION "-c"
+#define SHELL_TYPE_SAVED_POINT 0
+#define SHELL_OPTION_SAVED_POINT 1
+#define SHELL_COMMAND_SAVED_POINT 2
+#define END_OF_COMMAND_SAVED_POINT 3
 
-main()
+int main()
 {
     char *arg[MAXARG];
-    char *s;
-    char *save;
-    int argv;
-    /* ∞¯πÈ, ≈«, ∞≥«‡¿∏∑Œ ¿Ã∑ÁæÓ¡¯ ±∏∫–¿⁄ º±æ */
-    static const char delim[] = " \t\n";
     int pid, status;
-    arg[0] = "/bin/bash";
-    arg[1] = "-c";
-    /* π´«— π›∫π */
+    arg[SHELL_TYPE_SAVED_POINT] = SHELL_TYPE;
+    arg[SHELL_OPTION_SAVED_POINT] = SHELL_OPTION;
+
     while(1) {
-        char buf[256] = {'\0', };
-        /* «¡∑“«¡∆Æ √‚∑¬ */
+        char buf[MAXIMUM_BUFFER_SIZE] = {'\0', };
         printf("myshell$ ");
         gets(buf);
-        arg[2] = buf;
-//        argv = 0;
-        /* πÆ¿⁄ø≠ø°º≠ delim¿ª ±‚¡ÿ¿∏∑Œ ¥‹æÓ∏¶ ¿ﬂ∂Û≥ø */
-//        s = strtok_r(buf, delim, &save);
-//        while(s) {
-//            arg[argv++] = s;
-//            s = strtok_r(NULL, delim, &save);
-//        }
-        /* ¿Œºˆ∞° ¥ı æ¯¿Ω¿ª ¿«πÃ«œ¥¬ πÆ¿⁄ √ﬂ∞° */
-        arg[3] = (char *)0;
+        arg[SHELL_COMMAND_SAVED_POINT] = buf;
+        arg[END_OF_COMMAND_SAVED_POINT] = (char *)0;
         
-        /* «¡∑“«¡∆Æ∑Œ ¿‘∑¬ πﬁ¿∫ √π π¯¬∞ ¥‹æÓ∞° °Æquit°Ø¿Ã∏È while πÆ π˛æÓ≥≤ */
-        if (!strcmp(arg[2], "quit"))
+        if (!strcmp(arg[SHELL_COMMAND_SAVED_POINT], "quit"))
             break;
         
-        if ((pid=fork()) == -1)   /* fork »£√‚ø° Ω«∆–«œ∏È */
+        if ((pid=fork()) == -1)
             perror("fork failed");
-        /* ∫Œ∏ «¡∑ŒººΩ∫¥¬ ¿⁄Ωƒ «¡∑ŒººΩ∫∞° ¡æ∑·µ«±‚∏¶ ±‚¥Ÿ∏≤ */
         else if (pid != 0) {
             pid = wait(&status);
-            /* ¿⁄Ωƒ «¡∑ŒººΩ∫¥¬ execvp∏¶ ¿ÃøÎ«œø© arg[0] Ω««‡ */
         } else {
-            execvp(arg[0], arg);
+            execvp(arg[SHELL_TYPE_SAVED_POINT], arg);
         }
     }
     exit(0);
+    return 0;
 }
 
