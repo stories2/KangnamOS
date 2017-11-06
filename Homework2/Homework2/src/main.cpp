@@ -19,6 +19,9 @@ int main() {
      cout << "error" << endl;
      }
      */
+    LogManager *logManager = new LogManager();
+    logManager->PrintLogInfo("main", "main", "logging test");
+    delete logManager;
     ExecuteManager *manager = new ExecuteManager();
     manager->SetOrder(argv);
     manager->Execute();

@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <string>
 #include "Core/ExecuteManager.hpp"
+#include "Utils/LogManager.hpp"
 
 using namespace std;
 
