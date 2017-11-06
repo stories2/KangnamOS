@@ -5,7 +5,7 @@ ExecuteManager::ExecuteManager(LogManager &logManager){
 }
 
 ExecuteManager::ExecuteManager(LogManager &logManager, string orderArray[]) {
-    int len = sizeof(orderArray[0]) / sizeof(orderArray), i;
+    int len = 3, i;
     this->logManager = logManager;
     this->orderArray = new string[len + 1];
     for(i = 0; i < len; i++) {
@@ -14,7 +14,7 @@ ExecuteManager::ExecuteManager(LogManager &logManager, string orderArray[]) {
 }
 
 void ExecuteManager::SetOrder(string orderArray[]) {
-    int len = sizeof(orderArray[0]) / sizeof(orderArray), i;
+    int len = 3, i;
     char buffer[200];
     sprintf(buffer, "order len: %d", len);
     logManager.PrintLogInfo("ExecuteManager", "SetOrder", buffer);
@@ -55,23 +55,24 @@ void ExecuteManager::Execute() {
 }
 
 void ExecuteManager::DeleteConvertedCharArray(char **orderArray) {
-    int len, i, row = sizeof(this->orderArray[0]) / sizeof(this->orderArray);
+    int len, i, row = 3;
     for(i = 0; i < row; i += 1) {
         delete [] orderArray[i];
     }
 }
 
 char** ExecuteManager::ConvertStringArray2CharArray(string *target) {
-    int len = sizeof(orderArray[0]) / sizeof(orderArray), i;
+    int len = 3, i;
     char **convertArray = NULL;
     
-    convertArray = new char *[len];
+    convertArray = new char *[len + 1];
     for(i = 0; i < len; i ++) {
         int subStrLen = target[i].length();
         convertArray[i] = new char[subStrLen + 1]();
         strncpy(convertArray[i], target[i].c_str(), subStrLen);
 //        convertArray[subStrLen] = NULL;
     }
+    convertArray[len] = (char *)NULL;
     return convertArray;
 }
 
