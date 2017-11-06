@@ -7,7 +7,7 @@ ExecuteManager::ExecuteManager(LogManager &logManager){
 ExecuteManager::ExecuteManager(LogManager &logManager, string orderArray[]) {
     int len = orderArray->length(), i;
     this->logManager = logManager;
-    this->orderArray = new string[len];
+    this->orderArray = new string[len + 1];
     for(i = 0; i < len; i++) {
         this->orderArray[i] = orderArray[i];
     }
@@ -15,7 +15,7 @@ ExecuteManager::ExecuteManager(LogManager &logManager, string orderArray[]) {
 
 void ExecuteManager::SetOrder(string orderArray[]) {
     int len = orderArray->length(), i;
-    this->orderArray = new string[len];
+    this->orderArray = new string[len + 1];
     for(i = 0; i < len; i++) {
         this->orderArray[i] = orderArray[i];
     }
