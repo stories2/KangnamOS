@@ -5,19 +5,17 @@
 //  Created by 김현우 on 2017. 11. 6..
 //  Copyright © 2017년 김현우. All rights reserved.
 //
+#include <iostream>
+#include <string>
 
 #ifndef LogManager_hpp
 #define LogManager_hpp
 
-#include <iostream>
-#include <string>
-using namespace std;
 
 #define LOG_LEVEL_INFO 0
 #define LOG_LEVEL_WARN 1
 #define LOG_LEVEL_ERROR 2
 
-#endif /* LogManager_hpp */
 
 class LogManager {
     char *className, *methodName, *msg;
@@ -31,3 +29,5 @@ public:
     void PrintLog();
     ~LogManager();
 };
+#endif /* LogManager_hpp */
+using namespace std;

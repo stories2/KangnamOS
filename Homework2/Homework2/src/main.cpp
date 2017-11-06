@@ -1,7 +1,6 @@
 #include "main.h"
 
 int main() {
-    cout << "Hello, goorm!" << endl;
     
 //    char *argv[] ={"ls", "-al"};
     string argv[] = {"ls", "-al"};
@@ -22,7 +21,7 @@ int main() {
     LogManager *logManager = new LogManager();
     logManager->PrintLogInfo("main", "main", "logging test");
     delete logManager;
-    ExecuteManager *manager = new ExecuteManager();
+    ExecuteManager *manager = new ExecuteManager(*logManager);
     manager->SetOrder(argv);
     manager->Execute();
     delete manager;
