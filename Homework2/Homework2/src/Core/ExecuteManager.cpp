@@ -55,21 +55,21 @@ void ExecuteManager::Execute() {
 }
 
 void ExecuteManager::DeleteConvertedCharArray(char **orderArray) {
-    int len, i, row = this->orderArray->length();
+    int len, i, row = sizeof(orderArray[0]) / sizeof(orderArray);
     for(i = 0; i < row; i += 1) {
         delete [] orderArray[i];
     }
 }
 
 char** ExecuteManager::ConvertStringArray2CharArray(string *target) {
-    int len = target->length(), i;
+    int len = sizeof(orderArray[0]) / sizeof(orderArray), i;
     char **convertArray = NULL;
     
     convertArray = new char *[len];
     for(i = 0; i < len; i ++) {
         int subStrLen = target[i].length();
         convertArray[i] = new char[subStrLen + 1];
-        strncpy(convertArray[i], target[i].c_str(), sizeof(convertArray[i]));
+        strncpy(convertArray[i], target[i].c_str(), subStrLen);
     }
     return convertArray;
 }
