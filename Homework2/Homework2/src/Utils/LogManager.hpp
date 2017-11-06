@@ -7,6 +7,7 @@
 //
 #include <iostream>
 #include <string>
+#include <cstring>
 
 #ifndef LogManager_hpp
 #define LogManager_hpp
