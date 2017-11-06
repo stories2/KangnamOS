@@ -68,8 +68,9 @@ char** ExecuteManager::ConvertStringArray2CharArray(string *target) {
     convertArray = new char *[len];
     for(i = 0; i < len; i ++) {
         int subStrLen = target[i].length();
-        convertArray[i] = new char[subStrLen + 1];
+        convertArray[i] = new char[subStrLen + 1]();
         strncpy(convertArray[i], target[i].c_str(), subStrLen);
+//        convertArray[subStrLen] = NULL;
     }
     return convertArray;
 }

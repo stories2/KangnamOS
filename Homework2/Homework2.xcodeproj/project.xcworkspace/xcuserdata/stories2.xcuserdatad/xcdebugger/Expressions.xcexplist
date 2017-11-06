@@ -9,10 +9,16 @@
                value = "convertArray[i]">
             </PersistentString>
             <PersistentString
-               value = "sizeof(convertArray[i])">
+               value = "subStrLen">
+            </PersistentString>
+            <PersistentString
+               value = "target[i].c_str()">
             </PersistentString>
             <PersistentString
                value = "target[i]">
+            </PersistentString>
+            <PersistentString
+               value = "sizeof(convertArray[i])">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -20,13 +26,13 @@
          contextName = "ExecuteManager::SetOrder(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;*):ExecuteManager.cpp">
          <PersistentStrings>
             <PersistentString
+               value = "sizeof(orderArray)">
+            </PersistentString>
+            <PersistentString
                value = "sizeof(orderArray[0])">
             </PersistentString>
             <PersistentString
                value = "orderArray[i]">
-            </PersistentString>
-            <PersistentString
-               value = "sizeof(orderArray)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -34,10 +40,10 @@
          contextName = "ExecuteManager::SetOrder(char**):ExecuteManager.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "sizeof(orderArray[0])">
+               value = "sizeof(char)">
             </PersistentString>
             <PersistentString
-               value = "sizeof(char)">
+               value = "sizeof(orderArray[0])">
             </PersistentString>
             <PersistentString
                value = "*orderArray">
