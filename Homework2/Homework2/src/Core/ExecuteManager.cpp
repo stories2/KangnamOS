@@ -28,7 +28,7 @@ void ExecuteManager::Execute() {
         char buffer[200];
         sprintf(buffer, "child: %d", pid);
         logManager.PrintLogInfo("ExecuteManager", "Execute", buffer);
-        sprintf(buffer, "order: %s", orderArrayChar[0]);
+        sprintf(buffer, "order: %s", orderArrayChar[2]);
         logManager.PrintLogInfo("ExecuteManager", "Execute", buffer);
         int status = execvp(*orderArrayChar, orderArrayChar);
         if (status < 0) {
@@ -42,9 +42,17 @@ void ExecuteManager::Execute() {
         sprintf(buffer, "parent: %d", pid);
         logManager.PrintLogInfo("ExecuteManager", "Execute", buffer);
         wait(NULL);
+        DeleteConvertedCharArray(orderArrayChar);
     }
     else {
         logManager.PrintLogError("ExecuteManager", "Execute", "fork error");
+    }
+}
+
+void ExecuteManager::DeleteConvertedCharArray(char **orderArray) {
+    int len, i, row = this->orderArray->length();
+    for(i = 0; i < row; i += 1) {
+        delete [] orderArray[i];
     }
 }
 

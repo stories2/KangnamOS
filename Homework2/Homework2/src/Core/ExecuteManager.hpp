@@ -22,5 +22,6 @@ public:
     void SetOrder(string orderArray[]);
     void Execute();
     char** ConvertStringArray2CharArray(string orderArray[]);
+    void DeleteConvertedCharArray(char **orderArray);
 };
 
