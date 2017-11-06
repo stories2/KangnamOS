@@ -5,7 +5,7 @@ ExecuteManager::ExecuteManager(LogManager &logManager){
 }
 
 ExecuteManager::ExecuteManager(LogManager &logManager, string orderArray[]) {
-    int len = orderArray->length(), i;
+    int len = sizeof(orderArray[0]) / sizeof(orderArray), i;
     this->logManager = logManager;
     this->orderArray = new string[len + 1];
     for(i = 0; i < len; i++) {
@@ -14,9 +14,14 @@ ExecuteManager::ExecuteManager(LogManager &logManager, string orderArray[]) {
 }
 
 void ExecuteManager::SetOrder(string orderArray[]) {
-    int len = orderArray->length(), i;
+    int len = sizeof(orderArray[0]) / sizeof(orderArray), i;
+    char buffer[200];
+    sprintf(buffer, "order len: %d", len);
+    logManager.PrintLogInfo("ExecuteManager", "SetOrder", buffer);
     this->orderArray = new string[len + 1];
     for(i = 0; i < len; i++) {
+        sprintf(buffer, "order: %d %s", i, orderArray[i].c_str());
+        logManager.PrintLogInfo("ExecuteManager", "SetOrder", buffer);
         this->orderArray[i] = orderArray[i];
     }
 }
