@@ -82,6 +82,9 @@ void LogManager::PrintLogError(char *className, char *methodName, char *msg) {
 }
 
 void LogManager::PrintLog() {
+    if(DEBUG_MODE == DISABLE) {
+        return;
+    }
     switch (logLevel) {
         case LOG_LEVEL_INFO:
             cout << "I: ";

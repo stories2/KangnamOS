@@ -16,6 +16,8 @@
 #define LOG_LEVEL_INFO 0
 #define LOG_LEVEL_WARN 1
 #define LOG_LEVEL_ERROR 2
+#define DEBUG_MODE 1
+#define DISABLE 0
 
 
 class LogManager {
