@@ -55,7 +55,7 @@ void ExecuteManager::Execute() {
 }
 
 void ExecuteManager::DeleteConvertedCharArray(char **orderArray) {
-    int len, i, row = sizeof(orderArray[0]) / sizeof(orderArray);
+    int len, i, row = sizeof(this->orderArray[0]) / sizeof(this->orderArray);
     for(i = 0; i < row; i += 1) {
         delete [] orderArray[i];
     }
