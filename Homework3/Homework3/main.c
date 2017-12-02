@@ -18,6 +18,7 @@ int main(int argc, const char * argv[]) {
         {8, 2}
     };
 //    SimulateFCFS(processTestData);
-    SimulateRoundRobin(processTestData);
+//    SimulateRoundRobin(processTestData);
+    SimulateSPN(processTestData);
     return 0;
 }

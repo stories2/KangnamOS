@@ -17,6 +17,8 @@
 #define LAUNCHED 1
 #define ARRIVE_TIME 0
 #define SERVICE_TIME 1
+#define ENABLE 1
+#define DISABLE 0
 
 struct Queue{
     int arriveTime, serviceTime, id;
