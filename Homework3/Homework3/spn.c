@@ -50,6 +50,7 @@ void SimulateSPN(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
                 while(indexFinder != NULL) {
                     if(indexFinder->serviceTime < minServiceTime) {
                         minServiceTimeProcess = indexFinder;
+                        minServiceTime = indexFinder->serviceTime;
                     }
                     indexFinder = indexFinder->nextQueue;
                 }

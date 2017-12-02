@@ -19,6 +19,7 @@ int main(int argc, const char * argv[]) {
     };
 //    SimulateFCFS(processTestData);
 //    SimulateRoundRobin(processTestData);
-    SimulateSPN(processTestData);
+//    SimulateSPN(processTestData);
+    SimulateSRT(processTestData);
     return 0;
 }
