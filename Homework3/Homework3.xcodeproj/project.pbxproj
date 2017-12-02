@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C46340D1FD2CDC20093A8A4 /* fcfs.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C46340C1FD2CDC20093A8A4 /* fcfs.c */; };
+		2C46340F1FD2CDEC0093A8A4 /* roundRobin.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C46340E1FD2CDEC0093A8A4 /* roundRobin.c */; };
+		2C4634111FD2CE0A0093A8A4 /* spn.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4634101FD2CE0A0093A8A4 /* spn.c */; };
+		2C4634131FD2CE140093A8A4 /* srt.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4634121FD2CE140093A8A4 /* srt.c */; };
+		2C4634151FD2CE1F0093A8A4 /* hrrn.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4634141FD2CE1F0093A8A4 /* hrrn.c */; };
+		2C4634171FD2CE380093A8A4 /* feedback.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4634161FD2CE380093A8A4 /* feedback.c */; };
+		2C4634191FD2CE490093A8A4 /* helper.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C4634181FD2CE490093A8A4 /* helper.c */; };
 		2C5554BD1FCBF87D00BFB22B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C5554BC1FCBF87D00BFB22B /* main.c */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +30,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C46340B1FD2CD720093A8A4 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		2C46340C1FD2CDC20093A8A4 /* fcfs.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fcfs.c; sourceTree = "<group>"; };
+		2C46340E1FD2CDEC0093A8A4 /* roundRobin.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = roundRobin.c; sourceTree = "<group>"; };
+		2C4634101FD2CE0A0093A8A4 /* spn.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = spn.c; sourceTree = "<group>"; };
+		2C4634121FD2CE140093A8A4 /* srt.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = srt.c; sourceTree = "<group>"; };
+		2C4634141FD2CE1F0093A8A4 /* hrrn.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hrrn.c; sourceTree = "<group>"; };
+		2C4634161FD2CE380093A8A4 /* feedback.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = feedback.c; sourceTree = "<group>"; };
+		2C4634181FD2CE490093A8A4 /* helper.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = helper.c; sourceTree = "<group>"; };
 		2C5554B91FCBF87D00BFB22B /* Homework3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Homework3; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C5554BC1FCBF87D00BFB22B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +73,14 @@
 			isa = PBXGroup;
 			children = (
 				2C5554BC1FCBF87D00BFB22B /* main.c */,
+				2C46340B1FD2CD720093A8A4 /* main.h */,
+				2C46340C1FD2CDC20093A8A4 /* fcfs.c */,
+				2C46340E1FD2CDEC0093A8A4 /* roundRobin.c */,
+				2C4634101FD2CE0A0093A8A4 /* spn.c */,
+				2C4634121FD2CE140093A8A4 /* srt.c */,
+				2C4634141FD2CE1F0093A8A4 /* hrrn.c */,
+				2C4634161FD2CE380093A8A4 /* feedback.c */,
+				2C4634181FD2CE490093A8A4 /* helper.c */,
 			);
 			path = Homework3;
 			sourceTree = "<group>";
@@ -120,6 +143,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C5554BD1FCBF87D00BFB22B /* main.c in Sources */,
+				2C4634191FD2CE490093A8A4 /* helper.c in Sources */,
+				2C4634151FD2CE1F0093A8A4 /* hrrn.c in Sources */,
+				2C4634171FD2CE380093A8A4 /* feedback.c in Sources */,
+				2C4634131FD2CE140093A8A4 /* srt.c in Sources */,
+				2C46340F1FD2CDEC0093A8A4 /* roundRobin.c in Sources */,
+				2C46340D1FD2CDC20093A8A4 /* fcfs.c in Sources */,
+				2C4634111FD2CE0A0093A8A4 /* spn.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
