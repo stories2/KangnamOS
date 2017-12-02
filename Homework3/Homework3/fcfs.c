@@ -22,6 +22,7 @@ void SimulateFCFS(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
                     front->serviceTime = processTestData[i][SERVICE_TIME];
                     front->id = i;
                     front->nextQueue = NULL;
+                    front->beforeQueue = NULL;
                     
                     if(rear == NULL) {
                         rear = front;
@@ -33,6 +34,7 @@ void SimulateFCFS(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
                     newIndex->serviceTime = processTestData[i][SERVICE_TIME];
                     newIndex->nextQueue = NULL;
                     newIndex->id = i;
+                    newIndex->beforeQueue = front;
                     front->nextQueue = newIndex;
                     front = newIndex;
                 }

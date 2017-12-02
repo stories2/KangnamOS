@@ -20,7 +20,7 @@
 
 struct Queue{
     int arriveTime, serviceTime, id;
-    struct Queue *nextQueue;
+    struct Queue *nextQueue, *beforeQueue;
 };
 
 void SimulateFCFS(int [PROCESS_NUM][PROCESS_INFO]);
