@@ -21,7 +21,7 @@
 #define DISABLE 0
 
 struct Queue{
-    int arriveTime, serviceTime, id;
+    int arriveTime, serviceTime, id, waitingTime;
     struct Queue *nextQueue, *beforeQueue;
 };
 
@@ -33,5 +33,6 @@ void SimulateHRRN(int [PROCESS_NUM][PROCESS_INFO]);
 void SimulateFeedback(int [PROCESS_NUM][PROCESS_INFO]);
 int IsAllProcessLunched(int [PROCESS_NUM]);
 void PrintStatus(int [PROCESS_NUM], struct Queue *, int );
+void IncreaseWaitTime(struct Queue *);
 
 #endif /* main_h */

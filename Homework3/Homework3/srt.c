@@ -86,7 +86,7 @@ void SimulateSRT(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
             processCheck[runner->id] = LAUNCHED;
             swapFlag = ENABLE;
         }
-        
+        IncreaseWaitTime(rear);
         PrintStatus(processCheck, rear, timer);
         timer += 1;
     }

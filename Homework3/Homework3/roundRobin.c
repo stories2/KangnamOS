@@ -69,7 +69,7 @@ void SimulateRoundRobin(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
 //            runner = NULL;
             runner->serviceTime -= 1;
         }
-        
+        IncreaseWaitTime(rear);
         PrintStatus(processCheck, rear, timer);
         timer += 1;
     }

@@ -31,13 +31,23 @@ void PrintStatus(int processCheck[PROCESS_NUM], struct Queue *rear, int timer) {
     if(rear == NULL)
         return;
     printf("------cpu running------\n");
-    printf("#%2d arrive: %2d service remain: %2d\n", rear->id, rear->arriveTime, rear->serviceTime);
+    printf("#%2d arrive: %2d service remain: %2d wait: %2d\n", rear->id, rear->arriveTime, rear->serviceTime, rear->waitingTime);
     
     rear = rear->nextQueue;
     
     printf("------queue------\n");
     while(rear != NULL) {
-        printf("#%2d arrive: %2d service remain: %2d\n", rear->id, rear->arriveTime, rear->serviceTime);
+        printf("#%2d arrive: %2d service remain: %2d wait: %2d\n", rear->id, rear->arriveTime, rear->serviceTime, rear->waitingTime);
         rear = rear->nextQueue;
+    }
+}
+
+void IncreaseWaitTime(struct Queue *rear) {
+    if(rear != NULL) {
+        rear = rear->nextQueue;
+        while(rear != NULL) {
+            rear->waitingTime += 1;
+            rear = rear->nextQueue;
+        }
     }
 }

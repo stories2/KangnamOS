@@ -51,6 +51,7 @@ void SimulateFCFS(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
                 }
             }
         }
+        IncreaseWaitTime(rear);
         PrintStatus(processCheck, rear, timer);
         timer += 1;
     }
