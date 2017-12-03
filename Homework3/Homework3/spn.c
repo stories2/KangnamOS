@@ -54,18 +54,20 @@ void SimulateSPN(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
                     }
                     indexFinder = indexFinder->nextQueue;
                 }
-                if(minServiceTimeProcess == front) {
-                    front = minServiceTimeProcess->beforeQueue;
+                if(minServiceTimeProcess != rear) {
+                    if(minServiceTimeProcess == front) {
+                        front = minServiceTimeProcess->beforeQueue;
+                    }
+                    if(minServiceTimeProcess->beforeQueue != NULL) {
+                        minServiceTimeProcess->beforeQueue->nextQueue = minServiceTimeProcess->nextQueue;
+                    }
+                    if(minServiceTimeProcess->nextQueue != NULL) {
+                        minServiceTimeProcess->nextQueue->beforeQueue = minServiceTimeProcess->beforeQueue;
+                    }
+                    minServiceTimeProcess->beforeQueue = NULL;
+                    minServiceTimeProcess->nextQueue = rear;
+                    rear = minServiceTimeProcess;
                 }
-                if(minServiceTimeProcess->beforeQueue != NULL) {
-                    minServiceTimeProcess->beforeQueue->nextQueue = minServiceTimeProcess->nextQueue;
-                }
-                if(minServiceTimeProcess->nextQueue != NULL) {
-                    minServiceTimeProcess->nextQueue->beforeQueue = minServiceTimeProcess->beforeQueue;
-                }
-                minServiceTimeProcess->beforeQueue = NULL;
-                minServiceTimeProcess->nextQueue = rear;
-                rear = minServiceTimeProcess;
             }
         }
         
