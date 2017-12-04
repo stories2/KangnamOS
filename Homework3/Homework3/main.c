@@ -21,6 +21,7 @@ int main(int argc, const char * argv[]) {
 //    SimulateRoundRobin(processTestData);
 //    SimulateSPN(processTestData);
 //    SimulateSRT(processTestData);
-    SimulateHRRN(processTestData);
+//    SimulateHRRN(processTestData);
+    SimulateFeedback(processTestData);
     return 0;
 }

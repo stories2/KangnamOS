@@ -9,6 +9,7 @@
 #ifndef main_h
 
 #include <stdio.h>
+#include <math.h>
 
 #define main_h
 #define PROCESS_NUM 5
@@ -23,6 +24,12 @@
 struct Queue{
     int arriveTime, serviceTime, id, waitingTime;
     struct Queue *nextQueue, *beforeQueue;
+};
+
+struct FeedbackQueue {
+    int timeLevel;
+    struct Queue *firstIndex;
+    struct FeedbackQueue *nextLevelQueue;
 };
 
 void SimulateFCFS(int [PROCESS_NUM][PROCESS_INFO]);
