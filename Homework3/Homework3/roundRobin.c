@@ -41,33 +41,31 @@ void SimulateRoundRobin(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
             }
         }
         
-        if(rear->serviceTime <= 0 || cpuCoolTime >= cpuCoolTimeLimit) {
-            if(rear != front && rear->serviceTime > 0) {
-                struct Queue *temp = rear->nextQueue;
-                rear->beforeQueue = front;
-                rear->nextQueue = NULL;
-                front->nextQueue = rear;
-                front = rear;
-                rear = temp;
-            }
-            else if(rear != front) {
-                rear = rear->nextQueue;
-            }
-            cpuCoolTimeLimit = 0;
-        }
-        
         if(rear != NULL) {
+            if(rear->serviceTime <= 0 || cpuCoolTime >= cpuCoolTimeLimit) {
+                if(rear != front && rear->serviceTime > 0) {
+                    struct Queue *temp = rear->nextQueue;
+                    rear->beforeQueue = front;
+                    rear->nextQueue = NULL;
+                    front->nextQueue = rear;
+                    front = rear;
+                    rear = temp;
+                }
+                else if(rear != front) {
+                    rear = rear->nextQueue;
+                }
+                cpuCoolTimeLimit = 0;
+            }
             runner = rear;
-        }
-        
-        if(runner->serviceTime > 1) {
-            runner->serviceTime -=1;
-            cpuCoolTime += 1;
-        }
-        else {
-            processCheck[runner->id] = LAUNCHED;
-//            runner = NULL;
-            runner->serviceTime -= 1;
+            if(runner->serviceTime > 1) {
+                runner->serviceTime -=1;
+                cpuCoolTime += 1;
+            }
+            else {
+                processCheck[runner->id] = LAUNCHED;
+                //            runner = NULL;
+                runner->serviceTime -= 1;
+            }
         }
         IncreaseWaitTime(rear);
         PrintStatus(processCheck, rear, timer);

@@ -10,9 +10,11 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+#include <time.h>
 
 #define main_h
-#define PROCESS_NUM 5
+#define PROCESS_NUM 100
 #define PROCESS_INFO 2
 #define NOT_LAUNCHED 0
 #define LAUNCHED 1

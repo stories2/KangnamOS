@@ -78,13 +78,16 @@ void SimulateSRT(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
             runner = rear;
         }
         
-        if(runner->serviceTime > 1) {
-            runner->serviceTime -= 1;
-        }
-        else {
-            runner->serviceTime -= 1;
-            processCheck[runner->id] = LAUNCHED;
-            swapFlag = ENABLE;
+        if(runner != NULL) {
+            
+            if(runner->serviceTime > 1) {
+                runner->serviceTime -= 1;
+            }
+            else {
+                runner->serviceTime -= 1;
+                processCheck[runner->id] = LAUNCHED;
+                swapFlag = ENABLE;
+            }
         }
         IncreaseWaitTime(rear);
         PrintStatus(processCheck, rear, timer);

@@ -17,11 +17,16 @@ int main(int argc, const char * argv[]) {
         {6, 5},
         {8, 2}
     };
-//    SimulateFCFS(processTestData);
-//    SimulateRoundRobin(processTestData);
-//    SimulateSPN(processTestData);
-//    SimulateSRT(processTestData);
-//    SimulateHRRN(processTestData);
+    int i;
+    for(i = 0; i < PROCESS_NUM; i += 1) {
+        processTestData[i][ARRIVE_TIME] = rand() % PROCESS_NUM;
+        processTestData[i][SERVICE_TIME] = rand() % PROCESS_NUM;
+    }
+    SimulateFCFS(processTestData);
+    SimulateRoundRobin(processTestData);
+    SimulateSPN(processTestData);
+    SimulateSRT(processTestData);
+    SimulateHRRN(processTestData);
     SimulateFeedback(processTestData);
     return 0;
 }
