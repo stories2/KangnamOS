@@ -22,6 +22,7 @@
 #define SERVICE_TIME 1
 #define ENABLE 1
 #define DISABLE 0
+#define NOT_AVAILABLE -1
 
 struct Queue{
     int arriveTime, serviceTime, id, waitingTime;
@@ -43,5 +44,7 @@ void SimulateFeedback(int [PROCESS_NUM][PROCESS_INFO]);
 int IsAllProcessLunched(int [PROCESS_NUM]);
 void PrintStatus(int [PROCESS_NUM], struct Queue *, int );
 void IncreaseWaitTime(struct Queue *);
+void IncreaseWaitTimeFeedback(struct Queue *, struct FeedbackQueue *);
+void PrintEndOfSchedule(int , int , int , char *);
 
 #endif /* main_h */

@@ -19,27 +19,27 @@ int IsAllProcessLunched(int processCheck[PROCESS_NUM]) {
 }
 
 void PrintStatus(int processCheck[PROCESS_NUM], struct Queue *rear, int timer) {
-    int i;
-    
-    printf("------time %2d------\n", timer);
-    
-    printf("------process lunched checker------\n");
-    for(i = 0; i < PROCESS_NUM; i += 1) {
-        printf("#%2d -> %d\n", i, processCheck[i]);
-    }
-    
-    if(rear == NULL)
-        return;
-    printf("------cpu running------\n");
-    printf("#%2d arrive: %2d service remain: %2d wait: %2d\n", rear->id, rear->arriveTime, rear->serviceTime, rear->waitingTime);
-    
-    rear = rear->nextQueue;
-    
-    printf("------queue------\n");
-    while(rear != NULL) {
-        printf("#%2d arrive: %2d service remain: %2d wait: %2d\n", rear->id, rear->arriveTime, rear->serviceTime, rear->waitingTime);
-        rear = rear->nextQueue;
-    }
+//    int i;
+//    
+//    printf("------time %2d------\n", timer);
+//    
+//    printf("------process lunched checker------\n");
+//    for(i = 0; i < PROCESS_NUM; i += 1) {
+//        printf("#%2d -> %d\n", i, processCheck[i]);
+//    }
+//    
+//    if(rear == NULL)
+//        return;
+//    printf("------cpu running------\n");
+//    printf("#%2d arrive: %2d service remain: %2d wait: %2d\n", rear->id, rear->arriveTime, rear->serviceTime, rear->waitingTime);
+//    
+//    rear = rear->nextQueue;
+//    
+//    printf("------queue------\n");
+//    while(rear != NULL) {
+//        printf("#%2d arrive: %2d service remain: %2d wait: %2d\n", rear->id, rear->arriveTime, rear->serviceTime, rear->waitingTime);
+//        rear = rear->nextQueue;
+//    }
 }
 
 void IncreaseWaitTime(struct Queue *rear) {
@@ -50,4 +50,23 @@ void IncreaseWaitTime(struct Queue *rear) {
             rear = rear->nextQueue;
         }
     }
+}
+
+void IncreaseWaitTimeFeedback(struct Queue *running, struct FeedbackQueue *feedbackQueueRoot) {
+    struct FeedbackQueue *indexOfFeedbackLevel = feedbackQueueRoot;
+    struct Queue *indexOfQueue = NULL;
+    while(indexOfFeedbackLevel != NULL) {
+        indexOfQueue = indexOfFeedbackLevel->firstIndex;
+        while(indexOfQueue != NULL) {
+            if(indexOfQueue != running) {
+                indexOfQueue->waitingTime += 1;
+            }
+            indexOfQueue = indexOfQueue->nextQueue;
+        }
+        indexOfFeedbackLevel = indexOfFeedbackLevel->nextLevelQueue;
+    }
+}
+
+void PrintEndOfSchedule(int processNum, int startTime, int endTime, char *processType) {
+    printf("[%10s] All process num: %d start time: %d end time: %d\n", processType, processNum, startTime, endTime);
 }

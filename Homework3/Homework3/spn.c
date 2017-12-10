@@ -11,7 +11,7 @@
 void SimulateSPN(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
     struct Queue *front = NULL, *rear = NULL, *runner = NULL;
     int processCheck[PROCESS_NUM] = {NOT_LAUNCHED, };
-    int timer = 0, i, swapFlag = DISABLE, minServiceTime = 0;
+    int timer = 0, i, swapFlag = DISABLE, minServiceTime = 0, processStartTime = NOT_AVAILABLE;
     
     while(IsAllProcessLunched(processCheck) == NOT_LAUNCHED) {
         for(i = 0; i < PROCESS_NUM; i += 1) {
@@ -76,6 +76,9 @@ void SimulateSPN(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
         }
         
         if(runner != NULL) {
+            if(processStartTime == NOT_AVAILABLE) {
+                processStartTime = timer;
+            }
             if(runner->serviceTime > 1) {
                 runner->serviceTime -= 1;
             }
@@ -89,5 +92,7 @@ void SimulateSPN(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
         PrintStatus(processCheck, rear, timer);
         timer += 1;
     }
-    printf("all time: %d\n", timer);
+    //    printf("all time: %d\n", timer);
+    
+    PrintEndOfSchedule(PROCESS_NUM, processStartTime, timer, "SPN");
 }

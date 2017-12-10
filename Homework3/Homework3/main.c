@@ -18,10 +18,14 @@ int main(int argc, const char * argv[]) {
         {8, 2}
     };
     int i;
+    freopen("/Users/stories2/Desktop/input.txt", "r", stdin);
     for(i = 0; i < PROCESS_NUM; i += 1) {
-        processTestData[i][ARRIVE_TIME] = rand() % PROCESS_NUM;
-        processTestData[i][SERVICE_TIME] = rand() % PROCESS_NUM;
+//        processTestData[i][ARRIVE_TIME] = rand() % PROCESS_NUM;
+//        processTestData[i][SERVICE_TIME] = rand() % PROCESS_NUM;
+//        printf("%d %d\n", processTestData[i][ARRIVE_TIME], processTestData[i][SERVICE_TIME]);
+        scanf("%d %d\n", &processTestData[i][ARRIVE_TIME], &processTestData[i][SERVICE_TIME]);
     }
+    
     SimulateFCFS(processTestData);
     SimulateRoundRobin(processTestData);
     SimulateSPN(processTestData);

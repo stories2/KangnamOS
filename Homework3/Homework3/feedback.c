@@ -12,7 +12,7 @@ void SimulateFeedback(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
     struct FeedbackQueue *feedbackQueue = NULL, *indexOfFeedbackQueue;
     struct Queue *running = NULL;
     int processCheck[PROCESS_NUM] = {NOT_LAUNCHED, };
-    int timer = 0, swapFlag = DISABLE, i, lastProcessedLevel = 0, processTimeGap = 2, processTimeLimit = 0, processTime = 0;
+    int timer = 0, swapFlag = DISABLE, i, lastProcessedLevel = 0, processTimeGap = 2, processTimeLimit = 0, processTime = 0, processStartTime = NOT_AVAILABLE;
     
     feedbackQueue = malloc(sizeof(feedbackQueue));
     feedbackQueue->firstIndex = NULL;
@@ -129,6 +129,9 @@ void SimulateFeedback(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
         }
         
         if(running != NULL) {
+            if(processStartTime == NOT_AVAILABLE) {
+                processStartTime = timer;
+            }
             processTime += 1;
             if(running->serviceTime > 1) {
                 running->serviceTime = running->serviceTime - 1;
@@ -142,8 +145,10 @@ void SimulateFeedback(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
                 swapFlag = ENABLE;
             }
         }
-        
+        IncreaseWaitTimeFeedback(running, feedbackQueue);
         timer += 1;
     }
-    printf("all time: %d\n", timer);
+    //    printf("all time: %d\n", timer);
+    
+    PrintEndOfSchedule(PROCESS_NUM, processStartTime, timer, "Feedback");
 }

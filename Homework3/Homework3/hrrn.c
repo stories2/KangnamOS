@@ -11,7 +11,7 @@
 void SimulateHRRN(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
     struct Queue *front = NULL, *rear = NULL, *runner = NULL;
     int processCheck[PROCESS_NUM] = {NOT_LAUNCHED, };
-    int timer = 0, i, swapFlag = DISABLE;
+    int timer = 0, i, swapFlag = DISABLE, processStartTime = NOT_AVAILABLE;
     double minServiceTime = 0;
     
     while(IsAllProcessLunched(processCheck) == NOT_LAUNCHED) {
@@ -81,6 +81,9 @@ void SimulateHRRN(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
             runner = rear;
         }
         if(runner != NULL) {
+            if(processStartTime == NOT_AVAILABLE) {
+                processStartTime = timer;
+            }
             if(runner->serviceTime > 1) {
                 runner->serviceTime -= 1;
             }
@@ -94,5 +97,7 @@ void SimulateHRRN(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
         PrintStatus(processCheck, rear, timer);
         timer += 1;
     }
-    printf("all time: %d\n", timer);
+    //    printf("all time: %d\n", timer);
+    
+    PrintEndOfSchedule(PROCESS_NUM, processStartTime, timer, "HRRN");
 }
