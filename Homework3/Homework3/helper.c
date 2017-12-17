@@ -70,3 +70,13 @@ void IncreaseWaitTimeFeedback(struct Queue *running, struct FeedbackQueue *feedb
 void PrintEndOfSchedule(int processNum, int startTime, int endTime, char *processType) {
     printf("[%10s] All process num: %d start time: %d end time: %d\n", processType, processNum, startTime, endTime);
 }
+
+void PrintScheduleResult(int delayTimeSum, int serviceTimeSum) {
+    double averageReturnTime = (double)(delayTimeSum + serviceTimeSum) / PROCESS_NUM,
+    averageDelayTime = (double)(delayTimeSum) / PROCESS_NUM,
+    sqrtReturnTime = sqrt(pow(((delayTimeSum + serviceTimeSum) - averageReturnTime), 2) / (PROCESS_NUM - 1)),
+    sqrtDelayTime = sqrt(pow((delayTimeSum - averageDelayTime), 2) / (PROCESS_NUM - 1));
+    
+    printf("[Return] average: %.2lf Standard Deviation: %.2lf\n[Delay] average: %.2lf Standard Deviation: %.2lf\n",
+           averageReturnTime, sqrtReturnTime, averageDelayTime, sqrtDelayTime);
+}

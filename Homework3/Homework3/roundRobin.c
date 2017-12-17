@@ -12,10 +12,12 @@ void SimulateRoundRobin(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
     struct Queue *front = NULL, *rear = NULL, *runner = NULL;
     int processCheck[PROCESS_NUM] = {NOT_LAUNCHED, };
     int timer = 0, i, cpuCoolTime = 0, cpuCoolTimeLimit = 1, processStartTime = NOT_AVAILABLE;
+    int delayTimeSum = 0, serviceTimeSum = 0;
     
     while(IsAllProcessLunched(processCheck) == NOT_LAUNCHED) {
         for(i = 0; i < PROCESS_NUM; i += 1) {
             if(timer == processTestData[i][ARRIVE_TIME]) {
+                serviceTimeSum = serviceTimeSum + processTestData[i][SERVICE_TIME];
                 if(front == NULL) {
                     front = malloc(sizeof(struct Queue));
                     front->arriveTime = processTestData[i][ARRIVE_TIME];
@@ -65,6 +67,7 @@ void SimulateRoundRobin(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
                 cpuCoolTime += 1;
             }
             else {
+                delayTimeSum = delayTimeSum + runner->waitingTime;
                 processCheck[runner->id] = LAUNCHED;
                 //            runner = NULL;
                 runner->serviceTime -= 1;
@@ -77,4 +80,5 @@ void SimulateRoundRobin(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
 //    printf("all time: %d\n", timer);
     
     PrintEndOfSchedule(PROCESS_NUM, processStartTime, timer, "RoundRobin");
+    PrintScheduleResult(delayTimeSum, serviceTimeSum);
 }

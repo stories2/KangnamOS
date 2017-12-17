@@ -46,5 +46,6 @@ void PrintStatus(int [PROCESS_NUM], struct Queue *, int );
 void IncreaseWaitTime(struct Queue *);
 void IncreaseWaitTimeFeedback(struct Queue *, struct FeedbackQueue *);
 void PrintEndOfSchedule(int , int , int , char *);
+void PrintScheduleResult(int , int );
 
 #endif /* main_h */

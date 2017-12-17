@@ -13,6 +13,7 @@ void SimulateFeedback(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
     struct Queue *running = NULL;
     int processCheck[PROCESS_NUM] = {NOT_LAUNCHED, };
     int timer = 0, swapFlag = DISABLE, i, lastProcessedLevel = 0, processTimeGap = 2, processTimeLimit = 0, processTime = 0, processStartTime = NOT_AVAILABLE;
+    int delayTimeSum = 0, serviceTimeSum = 0;
     
     feedbackQueue = malloc(sizeof(feedbackQueue));
     feedbackQueue->firstIndex = NULL;
@@ -22,6 +23,7 @@ void SimulateFeedback(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
     while(IsAllProcessLunched(processCheck) == NOT_LAUNCHED) {
         for(i = 0; i < PROCESS_NUM; i += 1) {
             if(timer == processTestData[i][ARRIVE_TIME]) {
+                serviceTimeSum = serviceTimeSum + processTestData[i][SERVICE_TIME];
                 struct Queue *newProcess = malloc(sizeof(struct Queue));
                 newProcess->arriveTime = processTestData[i][ARRIVE_TIME];
                 newProcess->serviceTime = processTestData[i][SERVICE_TIME];
@@ -137,6 +139,7 @@ void SimulateFeedback(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
                 running->serviceTime = running->serviceTime - 1;
             }
             else {
+                delayTimeSum = delayTimeSum + running->waitingTime;
                 processCheck[running->id] = LAUNCHED;
                 running->serviceTime = running->serviceTime - 1;
                 swapFlag = ENABLE;
@@ -151,4 +154,5 @@ void SimulateFeedback(int processTestData[PROCESS_NUM][PROCESS_INFO]) {
     //    printf("all time: %d\n", timer);
     
     PrintEndOfSchedule(PROCESS_NUM, processStartTime, timer, "Feedback");
+    PrintScheduleResult(delayTimeSum, serviceTimeSum);
 }
